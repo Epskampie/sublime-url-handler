@@ -12,5 +12,19 @@ request=${request/&line=/:}
 # Replace &column= with :
 request=${request/&column=/:}
 
-# Launch Sublime
-subl $request
+# Launch Editors
+
+# If sublime is running
+if [ -n "`pidof sublime_text`" ]; then
+    subl $request
+fi
+
+# If code is running
+if [ -n "`pidof code`" ]; then
+    code -g $request
+fi
+
+# If none running, open sublime
+if [ -z "`pidof sublime_text``pidof code`" ]; then
+    subl $request
+fi
