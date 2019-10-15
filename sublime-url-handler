@@ -24,7 +24,7 @@ if [ -n "`pidof code`" ]; then
     code -g $request
 fi
 
-# If none running, open sublime
+# If none running, open code
 if [ -z "`pidof sublime_text``pidof code`" ]; then
-    subl $request
+    code -g $request
 fi
